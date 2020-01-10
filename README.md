@@ -1,2 +1,4 @@
-# shaides_gtc20
-ShAIdes updates for GTC20 conference.
+# ShAIdes GTC20 Updates
+
+Coming soon!
+
