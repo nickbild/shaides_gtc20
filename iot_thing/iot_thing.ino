@@ -12,12 +12,17 @@
 char ssid[] = SECRET_SSID;
 char pass[] = SECRET_PASS;
 
+int musicPin = 8;
+
 int status = WL_IDLE_STATUS;
 WiFiServer server(80);
 
 void setup() {
   Serial.begin(9600);
-  while (!Serial) {}
+  //while (!Serial) {}
+
+  pinMode(musicPin, OUTPUT);
+  digitalWrite(musicPin, LOW);
 
   Serial.println("Starting Access Point...");
 
@@ -105,6 +110,10 @@ void loop() {
         // Interpret client request.
         if (currentLine.endsWith("GET /music_on")) {
           Serial.println("Turning music on.");
+          
+          digitalWrite(musicPin, HIGH);
+          delay(500);
+          digitalWrite(musicPin, LOW);
         }
         if (currentLine.endsWith("GET /music_off")) {
           Serial.println("Turning music off.");
